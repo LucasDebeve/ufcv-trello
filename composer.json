@@ -74,6 +74,11 @@
         "symfony/polyfill-php82": "*"
     },
     "scripts": {
+        "start": [
+            "Composer\\Config::disableProcessTimeout",
+            "symfony serve"
+        ],
+        "stop": "symfony local:server:stop",
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd",
@@ -95,7 +100,12 @@
             "require": "7.1.*"
         }
     },
+    "scripts-descriptions": {
+        "start": "Lance le serveur web local pour le développement"
+    },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.6",
+        "friendsofphp/php-cs-fixer": "^3.59",
         "phpunit/phpunit": "^9.5",
         "symfony/browser-kit": "7.1.*",
         "symfony/css-selector": "7.1.*",
@@ -103,6 +113,7 @@
         "symfony/maker-bundle": "^1.0",
         "symfony/phpunit-bridge": "^7.1",
         "symfony/stopwatch": "7.1.*",
-        "symfony/web-profiler-bundle": "7.1.*"
+        "symfony/web-profiler-bundle": "7.1.*",
+        "zenstruck/foundry": "^2.0"
     }
 }
